@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Changing Tides</title>
+  <link rel="icon" href="{{ url_for('static', filename='Images/icon.png') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cstyles.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='alert.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body>
+  <section class="contact">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <p>
+        Please use this form to get in touch with us, report a bug, or suggest
+        a feature...
+      </p>
+    </div>
+    <div class="container">
+      <div class="contactInfo">
+        <div class="box">
+          <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <div class="text">
+            <h3>Address</h3>
+            <p>
+              MLR Institute of Technology, <br />Dundigal, Hyderabad,
+              <br />500043
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icon"><i class="bi bi-telephone-fill"></i></div>
+          <div class="text">
+            <h3>Phone</h3>
+            <p>7997466206</p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+          <div class="text">
+            <h3>Email</h3>
+            <p>ClimateChangeAnalysisvbb@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="contactForm">
+        <form method="POST" id="form" onsubmit="myFunction(); reset(); return false;">
+          <h2>Send Message</h2>
+          <div class="inputBox">
+            <input type="text" name="Full_name" required="required" />
+            <span>Full Name</span>
+          </div>
+          <div class="inputBox">
+            <input
+              type="email"
+              id="email"
+              name="main_email"
+              required="required"
+            />
+            <span>Google Verified Email</span>
+          </div>
+          <div class="inputBox">
+            <textarea required="required" name="text_area"></textarea>
+            <span>Type your Message...</span>
+          </div>
+          <div class="inputBox">
+            <input type="submit" value="Send" />
+            <a href="{{ url_for('index') }}">
+              <i
+                class="bi bi-house-door-fill"
+                style="
+                  color: #00bcd4;
+                  min-width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  font-size: 22px;
+                  margin-left: 60%;
+                "
+              ></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail() {
+      let name = document.getElementsByName("Full_name")[0].value;
+      let email = document.getElementsByName("main_email")[0].value;
+      let message = document.getElementsByName("text_area")[0].value;
+
+      // Programmer mail
+      let subject = "Feedback about the Application!!";
+      let formattedMessage = message.replace(/\n/g, "<br><div style='margin-bottom: 10px;'></div>");
+      let text = `<div style="font-family:Open Sans, sans-serif;text-align:center;line-height:30.00px;font-size:18px;margin:0;color:#5f5f5f;word-break:normal">${name} has sent you a message: <br><div style='margin-bottom: 10px;'></div>${formattedMessage}<br><br>Contact Email: ${email}</div>`;
+      let content = `<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="x-apple-disable-message-reformatting">
+        <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+
+        <meta name="color-scheme" content="light">
+        <meta name="supported-color-schemes" content="light">
+
+        
+        <!--[if !mso]><!-->
+          
+          <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+
+          <style type="text/css">
+          // TODO: fix me!
+            @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+        </style>
+        
+        <!--<![endif]-->
+
+        <!--[if mso]>
+          <style>
+              // TODO: fix me!
+              * {
+                  font-family: sans-serif !important;
+              }
+          </style>
+        <![endif]-->
+    
+        
+        <!-- NOTE: the title is processed in the backend during the campaign dispatch -->
+        <title></title>
+
+        <!--[if gte mso 9]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        
+    <style>
+        :root {
+            color-scheme: light;
+            supported-color-schemes: light;
+        }
+
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+
+            overflow-wrap: break-word;
+            -ms-word-break: break-all;
+            -ms-word-break: break-word;
+            word-break: break-all;
+            word-break: break-word;
+        }
+
+
+        
+  direction: undefined;
+  center,
+  #body_table {
+    
+  }
+
+  ul, ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+  
+
+  .list-block-list-outside-left li {
+    margin-left: 20px !important;
+  }
+
+  .list-block-list-outside-right li {
+    margin-right: 20px !important;
+  }
+
+  
+    .paragraph {
+      font-size: 15px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #5f5f5f;
+      
+    }
+  
+
+    .heading1 {
+      font-size: 32px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+      
+    }
+  
+
+    .heading2 {
+      font-size: 26px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+      
+    }
+  
+
+    .heading3 {
+      font-size: 19px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
+      
+    }
+  
+
+    .list {
+      font-size: 15px;
+      font-family: Open Sans, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      line-height: 1;
+      text-decoration: none;
+      color: #5f5f5f;
+      
+    }
+  
+
+  p a, 
+  li a {
+    
+  display: inline-block;  
+    color: #5457FF;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+
+  }
+
+  .button-table a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .paragraph > span {text-decoration: none;}.heading1 > span {text-decoration: none;}.heading2 > span {text-decoration: none;}.heading3 > span {text-decoration: none;}.list > span {text-decoration: none;}
+
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        #MessageViewBody,
+        #MessageWebViewDiv {
+            width: 100% !important;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        table:not(.button-table) {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        tr td p {
+            margin: 0;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a[x-apple-data-detectors],
+
+        .unstyle-auto-detected-links a,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .im {
+            color: inherit !important;
+        }
+
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        img.g-img+div {
+            display: none !important;
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .contentMainTable {
+                min-width: 320px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            u~div .contentMainTable {
+                min-width: 375px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 414px) {
+            u~div .contentMainTable {
+                min-width: 414px !important;
+            }
+        }
+    </style>
+
+    <style>
+        @media only screen and (max-device-width: 640px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .imageBlockWrapper {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+        @media only screen and (max-width: 640px) {
+            .contentMainTable {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .single-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .multi-column {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .imageBlockWrapper {
+                width: 100% !important;
+                margin: auto !important;
+            }
+        }
+    </style>
+    
+    
+<!--[if mso | IE]>
+    <style>
+        .list-block-outlook-outside-left {
+            margin-left: -18px;
+        }
+    
+        .list-block-outlook-outside-right {
+            margin-right: -18px;
+        }
+
+        a:link, span.MsoHyperlink {
+            mso-style-priority:99;
+            
+  display: inline-block;  
+    color: #5457FF;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+
+        }
+    </style>
+<![endif]-->
+
+
+    </head>
+
+    <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #F5F6F8;">
+        <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #F5F6F8;">
+            <!--[if mso | IE]>
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" id="body_table" style="background-color: #F5F6F8;">
+            <tbody>    
+                <tr>
+                    <td>
+                    <![endif]-->
+                        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="640" style="margin: auto;" class="contentMainTable">
+                            <tr class="wp-block-editor-spacerblock-v1"><td style="background-color:#F5F6F8;line-height:50px;font-size:50px;width:100%;min-width:100%">&nbsp;</td></tr><tr class="wp-block-editor-imageblock-v1"><td style="background-color:#2f6a3e;padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px" align="center"><table align="center" width="374.4" class="imageBlockWrapper" style="width:374.4px" role="presentation"><tbody><tr><td style="padding:0"><img src="https://api.smtprelay.co/userfile/de0963c7-5c81-4532-8c31-9e1e92ae35a5/logo.png" width="374.4" height="" alt="" style="border-radius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" class="g-img"></td></tr></tbody></table></td></tr><tr class="wp-block-editor-imageblock-v1"><td style="background-color:#ffffff;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0" align="center"><table align="center" width="640" class="imageBlockWrapper" style="width:640px" role="presentation"><tbody><tr><td style="padding:0"><img src="https://api.smtprelay.co/userfile/de0963c7-5c81-4532-8c31-9e1e92ae35a5/tranquil-scene-underwater-adventure-fish-swimming-flowing-water-generated-by-artificial-intellingence.jpeg" width="640" height="" alt="" style="border-radius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" class="g-img"></td></tr></tbody></table></td></tr><tr class="wp-block-editor-headingblock-v1"><td valign="top" style="background-color:#ffffff;display:block;padding-top:64px;padding-right:32px;padding-bottom:32px;padding-left:32px;text-align:center"><p style="font-family:Open Sans, sans-serif;text-align:center;line-height:36.80px;font-size:32px;background-color:#ffffff;color:#000000;margin:0;word-break:normal" class="heading1"><span style="font-weight: bold" class="bold">Changing Tides</span></p></td></tr><tr class="wp-block-editor-paragraphblock-v1"><td valign="top" style="padding:0px 32px 32px 32px;background-color:#ffffff"><p class="paragraph" style="font-family:Open Sans, sans-serif;text-align:center;line-height:30.00px;font-size:15px;margin:0;color:#5f5f5f;word-break:normal">As nature's dance unfolds, each shift in climate paints a new canvas, promising hope in every breeze.</p></td></tr><tr class="wp-block-editor-headingblock-v1"><td valign="top" style="background-color:#F9FAFB;display:block;padding-top:42px;padding-right:32px;padding-bottom:16px;padding-left:32px;text-align:center"><p style="font-family:Open Sans, sans-serif;text-align:center;line-height:19.00px;font-size:19px;background-color:#F9FAFB;color:#000000;margin:0;word-break:normal" class="heading3">${text}</p></td></tr><tr class="wp-block-editor-headingblock-v1"><td valign="top" style="background-color:#ffffff;display:block;padding-top:52px;padding-right:32px;padding-bottom:16px;padding-left:32px;text-align:center"><p style="font-family:Open Sans, sans-serif;text-align:center;line-height:29.90px;font-size:26px;background-color:#ffffff;color:#000000;margin:0;word-break:normal" class="heading2">As always, there is space for improvement. Keep up the fantastic work...</p></td></tr><tr class="wp-block-editor-spacerblock-v1"><td style="background-color:#ffffff;line-height:32px;font-size:32px;width:100%;min-width:100%">&nbsp;</td></tr><tr class="wp-block-editor-imageblock-v1"><td style="background-color:#ffffff;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0" align="center"><table align="center" width="640" class="imageBlockWrapper" style="width:640px" role="presentation"><tbody><tr><td style="padding:0"><img src="https://api.smtprelay.co/userfile/de0963c7-5c81-4532-8c31-9e1e92ae35a5/panoramic-shot-from-drone-nature-moldova-sunset.jpeg" width="640" height="" alt="" style="border-radius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" class="g-img"></td></tr></tbody></table></td></tr>
+                        </table>
+                    <!--[if mso | IE]>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <![endif]-->
+        </center>
+    </body>
+</html>`
+
+      Email.send({
+        SecureToken : "c3ba556e-3527-455f-be73-d43b95f25877",
+        To : 'climatechangeanalysisvbb@gmail.com',
+        From : "climatechangeanalysisvbb@gmail.com",
+        Subject : subject,
+        Body : content
+    }).then(function (message) {
+      if (message === "OK") {
+        console.log(message);
+          showToast(
+              "Successfully Submitted! Thanks for your response, we will contact you soon...",
+              "success",
+              5000
+          );
+      } else {
+          showToast("Failed to send email. Please try again later.", "danger", 5000);
+          console.log(message);
+      }
+  });
+  // User mail
+  let subject2 = "Get in Touch with Us!!";
+      let content2 = `<!DOCTYPE html>
+      <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+      
+          <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="x-apple-disable-message-reformatting">
+              <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+      
+              <meta name="color-scheme" content="light">
+              <meta name="supported-color-schemes" content="light">
+      
+              
+              <!--[if !mso]><!-->
+                
+                <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+      
+                <style type="text/css">
+                // TODO: fix me!
+                  @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+              </style>
+              
+              <!--<![endif]-->
+      
+              <!--[if mso]>
+                <style>
+                    // TODO: fix me!
+                    * {
+                        font-family: sans-serif !important;
+                    }
+                </style>
+              <![endif]-->
+          
+              
+              <!-- NOTE: the title is processed in the backend during the campaign dispatch -->
+              <title></title>
+      
+              <!--[if gte mso 9]>
+              <xml>
+                  <o:OfficeDocumentSettings>
+                      <o:AllowPNG/>
+                      <o:PixelsPerInch>96</o:PixelsPerInch>
+                  </o:OfficeDocumentSettings>
+              </xml>
+              <![endif]-->
+              
+          <style>
+              :root {
+                  color-scheme: light;
+                  supported-color-schemes: light;
+              }
+      
+              html,
+              body {
+                  margin: 0 auto !important;
+                  padding: 0 !important;
+                  height: 100% !important;
+                  width: 100% !important;
+      
+                  overflow-wrap: break-word;
+                  -ms-word-break: break-all;
+                  -ms-word-break: break-word;
+                  word-break: break-all;
+                  word-break: break-word;
+              }
+      
+      
+              
+        direction: undefined;
+        center,
+        #body_table {
+          
+        }
+      
+        ul, ol {
+          padding: 0;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      
+        li {
+          margin-bottom: 0;
+        }
+      
+        
+      
+        .list-block-list-outside-left li {
+          margin-left: 20px !important;
+        }
+      
+        .list-block-list-outside-right li {
+          margin-right: 20px !important;
+        }
+      
+        
+          .paragraph {
+            font-size: 15px;
+            font-family: Open Sans, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-align: start;
+            line-height: 1;
+            text-decoration: none;
+            color: #5f5f5f;
+            
+          }
+        
+      
+          .heading1 {
+            font-size: 32px;
+            font-family: Open Sans, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-align: start;
+            line-height: 1;
+            text-decoration: none;
+            color: #000000;
+            
+          }
+        
+      
+          .heading2 {
+            font-size: 26px;
+            font-family: Open Sans, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-align: start;
+            line-height: 1;
+            text-decoration: none;
+            color: #000000;
+            
+          }
+        
+      
+          .heading3 {
+            font-size: 19px;
+            font-family: Open Sans, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-align: start;
+            line-height: 1;
+            text-decoration: none;
+            color: #000000;
+            
+          }
+        
+      
+          .list {
+            font-size: 15px;
+            font-family: Open Sans, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-align: start;
+            line-height: 1;
+            text-decoration: none;
+            color: #5f5f5f;
+            
+          }
+        
+      
+        p a, 
+        li a {
+          
+        display: inline-block;  
+          color: #5457FF;
+          text-decoration: none;
+          font-style: normal;
+          font-weight: normal;
+      
+        }
+      
+        .button-table a {
+          text-decoration: none;
+          font-style: normal;
+          font-weight: normal;
+        }
+      
+        .paragraph > span {text-decoration: none;}.heading1 > span {text-decoration: none;}.heading2 > span {text-decoration: none;}.heading3 > span {text-decoration: none;}.list > span {text-decoration: none;}
+      
+      
+              * {
+                  -ms-text-size-adjust: 100%;
+                  -webkit-text-size-adjust: 100%;
+              }
+      
+              div[style*="margin: 16px 0"] {
+                  margin: 0 !important;
+              }
+      
+              #MessageViewBody,
+              #MessageWebViewDiv {
+                  width: 100% !important;
+              }
+      
+              table {
+                  border-collapse: collapse;
+                  border-spacing: 0;
+                  mso-table-lspace: 0pt !important;
+                  mso-table-rspace: 0pt !important;
+              }
+              table:not(.button-table) {
+                  border-spacing: 0 !important;
+                  border-collapse: collapse !important;
+                  table-layout: fixed !important;
+                  margin: 0 auto !important;
+              }
+      
+              th {
+                  font-weight: normal;
+              }
+      
+              tr td p {
+                  margin: 0;
+              }
+      
+              img {
+                  -ms-interpolation-mode: bicubic;
+              }
+      
+              a[x-apple-data-detectors],
+      
+              .unstyle-auto-detected-links a,
+              .aBn {
+                  border-bottom: 0 !important;
+                  cursor: default !important;
+                  color: inherit !important;
+                  text-decoration: none !important;
+                  font-size: inherit !important;
+                  font-family: inherit !important;
+                  font-weight: inherit !important;
+                  line-height: inherit !important;
+              }
+      
+              .im {
+                  color: inherit !important;
+              }
+      
+              .a6S {
+                  display: none !important;
+                  opacity: 0.01 !important;
+              }
+      
+              img.g-img+div {
+                  display: none !important;
+              }
+      
+              @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+                  u~div .contentMainTable {
+                      min-width: 320px !important;
+                  }
+              }
+      
+              @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+                  u~div .contentMainTable {
+                      min-width: 375px !important;
+                  }
+              }
+      
+              @media only screen and (min-device-width: 414px) {
+                  u~div .contentMainTable {
+                      min-width: 414px !important;
+                  }
+              }
+          </style>
+      
+          <style>
+              @media only screen and (max-device-width: 640px) {
+                  .contentMainTable {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+                  .single-column {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+                  .multi-column {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+                  .imageBlockWrapper {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+              }
+              @media only screen and (max-width: 640px) {
+                  .contentMainTable {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+                  .single-column {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+                  .multi-column {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+                  .imageBlockWrapper {
+                      width: 100% !important;
+                      margin: auto !important;
+                  }
+              }
+          </style>
+          
+          
+      <!--[if mso | IE]>
+          <style>
+              .list-block-outlook-outside-left {
+                  margin-left: -18px;
+              }
+          
+              .list-block-outlook-outside-right {
+                  margin-right: -18px;
+              }
+      
+              a:link, span.MsoHyperlink {
+                  mso-style-priority:99;
+                  
+        display: inline-block;  
+          color: #5457FF;
+          text-decoration: none;
+          font-style: normal;
+          font-weight: normal;
+      
+              }
+          </style>
+      <![endif]-->
+      
+      
+          </head>
+      
+          <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #F5F6F8;">
+              <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #F5F6F8;">
+                  <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" id="body_table" style="background-color: #F5F6F8;">
+                  <tbody>    
+                      <tr>
+                          <td>
+                          <![endif]-->
+                              <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="640" style="margin: auto;" class="contentMainTable">
+                                  <tr class="wp-block-editor-spacerblock-v1"><td style="background-color:#F5F6F8;line-height:50px;font-size:50px;width:100%;min-width:100%">&nbsp;</td></tr><tr class="wp-block-editor-imageblock-v1"><td style="background-color:#3d8891;padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px" align="center"><table align="center" width="374.4" class="imageBlockWrapper" style="width:374.4px" role="presentation"><tbody><tr><td style="padding:0"><img src="https://api.smtprelay.co/userfile/de0963c7-5c81-4532-8c31-9e1e92ae35a5/logo2024-03-21T21_02_27.png" width="374.4" height="" alt="" style="border-radius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" class="g-img"></td></tr></tbody></table></td></tr><tr class="wp-block-editor-imageblock-v1"><td style="background-color:#ffffff;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0" align="center"><table align="center" width="640" class="imageBlockWrapper" style="width:640px" role="presentation"><tbody><tr><td style="padding:0"><img src="https://api.smtprelay.co/userfile/de0963c7-5c81-4532-8c31-9e1e92ae35a5/climate.jpg" width="640" height="" alt="" style="border-radius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" class="g-img"></td></tr></tbody></table></td></tr><tr class="wp-block-editor-headingblock-v1"><td valign="top" style="background-color:#ffffff;display:block;padding-top:64px;padding-right:32px;padding-bottom:32px;padding-left:32px;text-align:center"><p style="font-family:Open Sans, sans-serif;text-align:center;line-height:36.80px;font-size:32px;background-color:#ffffff;color:#000000;margin:0;word-break:normal" class="heading1"><span style="font-weight: bold" class="bold">Changing Tides</span>  </p></td></tr><tr class="wp-block-editor-paragraphblock-v1"><td valign="top" style="padding:0px 32px 32px 32px;background-color:#ffffff"><p class="paragraph" style="font-family:Open Sans, sans-serif;text-align:center;line-height:30.00px;font-size:15px;margin:0;color:#5f5f5f;word-break:normal">Climate is like Earth's storyteller, using the wind, rain, and changing seasons to paint the picture of our world with strength and delicacy.</p></td></tr><tr class="wp-block-editor-headingblock-v1"><td valign="top" style="background-color:#ffffff;display:block;padding-top:52px;padding-right:32px;padding-bottom:16px;padding-left:32px;text-align:center"><p style="font-family:Open Sans, sans-serif;text-align:center;line-height:29.90px;font-size:26px;background-color:#ffffff;color:#000000;margin:0;word-break:normal" class="heading2">Thank you for your Feedback, we will contact you soon..</p></td></tr><tr class="wp-block-editor-spacerblock-v1"><td style="background-color:#ffffff;line-height:32px;font-size:32px;width:100%;min-width:100%">&nbsp;</td></tr><tr class="wp-block-editor-imageblock-v1"><td style="background-color:#ffffff;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0" align="center"><table align="center" width="640" class="imageBlockWrapper" style="width:640px" role="presentation"><tbody><tr><td style="padding:0"><img src="https://api.smtprelay.co/userfile/de0963c7-5c81-4532-8c31-9e1e92ae35a5/panoramic-shot-from-drone-nature-moldova-sunset.jpeg" width="640" height="" alt="" style="border-radius:0px;display:block;height:auto;width:100%;max-width:100%;border:0" class="g-img"></td></tr></tbody></table></td></tr><tr class="wp-block-editor-socialiconsblock-v1" role="article" aria-roledescription="social-icons" style="display:table-row;background-color:#F5F6F8"><td style="width:100%"><table style="background-color:#F5F6F8;width:100%;padding-top:42px;padding-bottom:32px;padding-left:32px;padding-right:32px;border-collapse:separate !important" cellpadding="0" cellspacing="0" role="presentation"><tbody><tr><td align="center" valign="top"><div style="max-width:576px"><table role="presentation" style="width:100%" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top"><div style="margin-left:auto;margin-right:auto;margin-top:-5px;margin-bottom:-5px;width:100%;max-width:208px"><table role="presentation" style="padding-left:184" width="100%" cellpadding="0" cellspacing="0"><tbody><tr><td><table role="presentation" align="left" style="float:left" class="single-social-icon" cellpadding="0" cellspacing="0"><tbody><tr><td valign="top" style="padding-top:5px;padding-bottom:5px;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;font-size:0"><a class="social-icon--link" href="https://facebook.com" target="_blank" rel="noreferrer"><img src="https://template-editor-assets.s3.eu-west-3.amazonaws.com/assets/social-icons/facebook/facebook-round-solid-color.png" width="32" height="32" style="max-width:32px;display:block;border:0" alt="Facebook"></a></td></tr></tbody></table><table role="presentation" align="left" style="float:left" class="single-social-icon" cellpadding="0" cellspacing="0"><tbody><tr><td valign="top" style="padding-top:5px;padding-bottom:5px;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;font-size:0"><a class="social-icon--link" href="https://twitter.com" target="_blank" rel="noreferrer"><img src="https://template-editor-assets.s3.eu-west-3.amazonaws.com/assets/social-icons/x/x-round-solid-color.png" width="32" height="32" style="max-width:32px;display:block;border:0" alt="X (formerly Twitter)"></a></td></tr></tbody></table><table role="presentation" align="left" style="float:left" class="single-social-icon" cellpadding="0" cellspacing="0"><tbody><tr><td valign="top" style="padding-top:5px;padding-bottom:5px;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;font-size:0"><a class="social-icon--link" href="https://youtube.com" target="_blank" rel="noreferrer"><img src="https://template-editor-assets.s3.eu-west-3.amazonaws.com/assets/social-icons/youtube/youtube-round-solid-color.png" width="32" height="32" style="max-width:32px;display:block;border:0" alt="Youtube"></a></td></tr></tbody></table><table role="presentation" align="left" style="float:left" class="single-social-icon" cellpadding="0" cellspacing="0"><tbody><tr><td valign="top" style="padding-top:5px;padding-bottom:5px;padding-left:10px;padding-right:10px;border-collapse:collapse !important;border-spacing:0;font-size:0"><a class="social-icon--link" href="https://linkedin.com" target="_blank" rel="noreferrer"><img src="https://template-editor-assets.s3.eu-west-3.amazonaws.com/assets/social-icons/linkedin/linkedin-round-solid-color.png" width="32" height="32" style="max-width:32px;display:block;border:0" alt="LinkedIn"></a></td></tr></tbody></table></td></tr></tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></table></td></tr><tr class="wp-block-editor-paragraphblock-v1"><td valign="top" style="padding:12px 12px 12px 12px;background-color:#F5F6F8"><p class="paragraph" style="font-family:Open Sans, sans-serif;text-align:center;line-height:11.50px;font-size:10px;margin:0;color:#5f5f5f;word-break:normal">Unable to view? Read it <a href="{view}" data-type="mergefield" data-id="62d10d6d-b252-49a7-af10-c771dbd58b15-Xzt0XJLlayJkgPI0XyMI5" data-filename="" class="62d10d6d-b252-49a7-af10-c771dbd58b15-Xzt0XJLlayJkgPI0XyMI5" data-mergefield-value="view" data-mergefield-input-value="" style="color: #5457FF; display: inline-block;">Online</a></p></td></tr>
+                              </table>
+                          <!--[if mso | IE]>
+                          </td>
+                      </tr>
+                  </tbody>
+                  </table>
+                  <![endif]-->
+              </center>
+          </body>
+      </html>`
+
+      Email.send({
+        SecureToken : "c3ba556e-3527-455f-be73-d43b95f25877",
+        To : email,
+        From : "climatechangeanalysisvbb@gmail.com",
+        Subject : subject2,
+        Body : content2
+    });
+  }
+
+    function myFunction() {
+      sendEmail();
+    }
+
+    let icon = {
+      success: '<span class="material-symbols-outlined">task_alt</span>',
+      danger: '<span class="material-symbols-outlined">error</span>',
+      info: '<span class="material-symbols-outlined">info</span>'
+    };
+
+    const showToast = (
+      message = "Sample Message",
+      toastType = "info",
+      duration = 5000
+    ) => {
+      if (!Object.keys(icon).includes(toastType)) toastType = "info";
+
+      let box = document.createElement("div");
+      box.classList.add("toast", `toast-${toastType}`);
+      box.innerHTML = ` <div class="toast-content-wrapper"> 
+                          <div class="toast-icon"> 
+                          ${icon[toastType]} 
+                          </div> 
+                          <div class="toast-message">${message}</div> 
+                          <div class="toast-progress"></div> 
+                          </div>`;
+      duration = duration || 5000;
+      box.querySelector(".toast-progress").style.animationDuration = `${
+        duration / 1000
+      }s`;
+
+      let toastAlready = document.body.querySelector(".toast");
+      if (toastAlready) {
+        toastAlready.remove();
+      }
+
+      document.body.appendChild(box);
+    };
+    showToast(
+      "Use Google Verified Email to receive mails from Us!!",
+      "info",
+      7000
+    );
+  </script>
+</body>
+</html>

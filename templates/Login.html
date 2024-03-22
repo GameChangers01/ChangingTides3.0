@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <title>Changing Tides</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='Images/icon.png') }}"
+    />
+    <!-- Link to your modified CSS files in the static folder -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='alert.css') }}"
+    />
+    <!-- Link to Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <img
+          src="{{ url_for('static', filename='Images/logo.png') }}"
+          onclick="window.location.href='{{ url_for('index') }}';"
+          class="logo"
+        />
+      </nav>
+
+      <center>
+        <form class="form" method="post" id="MainForm" autocomplete="off">
+          <p class="title" style="padding-bottom: 10px">Login</p>
+          <label>
+            <input
+              class="input"
+              type="email"
+              placeholder=""
+              required=""
+              id="emailInp"
+              autocomplete="false"
+            />
+            <span>Email</span>
+          </label>
+          <label>
+            <input
+              class="input"
+              type="password"
+              placeholder=""
+              required=""
+              id="pwd"
+              autocomplete="false"
+            />
+            <span>Password</span>
+          </label>
+          <label style="padding-bottom: 10px"></label>
+          <button class="submit" formaction="{{ url_for('home') }}">
+            Submit
+          </button>
+          <p class="signin">
+            Don't have an account ? <a href="{{ url_for('signup') }}">SignUp</a>
+          </p>
+        </form>
+      </center>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+      import {
+        getDatabase,
+        get,
+        ref,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyAgZpNDQwWg4fi2w3fsNuqhkUOcD8vhqnc",
+        authDomain: "changing-tides-adc55.firebaseapp.com",
+        databaseURL: "https://changing-tides-adc55-default-rtdb.firebaseio.com",
+        projectId: "changing-tides-adc55",
+        storageBucket: "changing-tides-adc55.appspot.com",
+        messagingSenderId: "1078203444707",
+        appId: "1:1078203444707:web:d5122b7b9021014f1984d6",
+        measurementId: "G-7L8K29LS1P",
+      };
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase(app);
+      const auth = getAuth(app);
+      const dbref = ref(db);
+
+      let EmailInp = document.getElementById("emailInp");
+      let PassInp = document.getElementById("pwd");
+      let MainForm = document.getElementById("MainForm");
+
+      let SignInUser = (evt) => {
+        evt.preventDefault();
+
+        signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+          .then((credentials) => {
+            get(child(dbref, "users/" + credentials.user.uid)).then(
+              (snapshot) => {
+                if (snapshot.exists) {
+                  sessionStorage.setItem(
+                    "user-info",
+                    JSON.stringify({
+                      firstname: snapshot.val().firstname,
+                      lastname: snapshot.val().lastname,
+                    })
+                  );
+                  sessionStorage.setItem(
+                    "user-creds",
+                    JSON.stringify(credentials.user)
+                  );
+                  window.location.href='{{ url_for('home') }}';
+                }
+              }
+            );
+          })
+          .catch((error) => {
+            // Alert
+            let icon = {
+              danger: '<span class="material-symbols-outlined">error</span>',
+            };
+            const showToast = (
+              message = "Sample Message",
+              toastType = "info",
+              duration = 5000
+            ) => {
+              if (!Object.keys(icon).includes(toastType)) toastType = "info";
+
+              let box = document.createElement("div");
+              box.classList.add("toast", `toast-${toastType}`);
+              box.innerHTML = ` <div class="toast-content-wrapper">
+                                            <div class="toast-icon">
+                                            ${icon[toastType]}
+                                            </div>
+                                            <div class="toast-message">${message}</div>
+                                            <div class="toast-progress"></div>
+                                            </div>`;
+              duration = duration || 5000;
+              box.querySelector(".toast-progress").style.animationDuration = `${
+                duration / 1000
+              }s`;
+
+              let toastAlready = document.body.querySelector(".toast");
+              if (toastAlready) {
+                toastAlready.remove();
+              }
+
+              document.body.appendChild(box);
+            };
+
+            showToast("Sorry, unrecognized credentials!!!", "danger", 5000);
+            console.log(error.code);
+            console.log(error.message);
+          });
+      };
+
+      MainForm.addEventListener("submit", SignInUser);
+    </script>
+  </body>
+</html>

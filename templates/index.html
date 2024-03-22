@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Changing Tides</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='Images/icon.png') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <img
+          src="{{ url_for('static', filename='Images/logo.png') }}"
+          class="logo"
+        />
+        <ul>
+          <li>
+            <a href="{{ url_for('signup') }}" style="font-size: large"
+              >SignUp</a
+            >
+          </li>
+          <li>
+            <a href="{{ url_for('login') }}" style="font-size: large">SignIn</a>
+          </li>
+          <li>
+            <a href="{{ url_for('contactus') }}" style="font-size: large"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="content">
+        <center>
+          <h1>
+            Unleashing the Power of Artificial Intelligence for Climate Change
+            Analysis...
+          </h1>
+        </center>
+        <center>
+          <p>
+            To curb its carbon-fueled voracity, to think of futures beyond this
+            century.
+          </p>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>
