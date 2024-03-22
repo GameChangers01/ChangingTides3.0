@@ -3,3 +3,4 @@ numpy
 gunicorn
 requests
 beautifulsoup4
+tensorflow
