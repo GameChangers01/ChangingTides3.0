@@ -511,7 +511,7 @@ def mail_send(user_email, city, year, max_t, min_t, rain, aqi, sealevel, ozone):
 
 
 @app.route("/result", methods=["POST", "GET"])
-def result():
+def Result():
     if request.method == "POST":
         ans = ""
         max_t = 49
@@ -540,7 +540,7 @@ def result():
             ozone = predict_maximum_ozone(y1)
             mail_send(user_email, city, year, max_t, min_t, rain, aqi, sealevel, ozone)
             return render_template(
-                "result.html",
+                "Result.html",
                 max_t=max_t,
                 min_t=min_t,
                 rain=rain,
@@ -561,7 +561,7 @@ def result():
             ozone = "Under progress"
             mail_send(user_email, city, year, max_t, min_t, rain, aqi, sealevel, ozone)
             return render_template(
-                "result.html",
+                "Result.html",
                 max_t=max_t,
                 min_t=min_t,
                 rain=rain,
