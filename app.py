@@ -1,48 +1,48 @@
 from flask import Flask, render_template, url_for, request
 import numpy as np
-import tensorflow as tf
-import os
-from sklearn.ensemble import (
-    GradientBoostingRegressor,
-    RandomForestRegressor,
-    AdaBoostRegressor,
-    VotingRegressor,
-)
-from sklearn.svm import SVR
-from sklearn.svm import SVR
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
-import numpy as np
-import pandas as pd
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-import pickle
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import (
-    GradientBoostingRegressor,
-    RandomForestRegressor,
-    VotingRegressor,
-)
-from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
-from sklearn.neural_network import MLPRegressor
-from sklearn.preprocessing import StandardScaler
-from sklearn.experimental import enable_hist_gradient_boosting
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import make_pipeline
-from sklearn.ensemble import VotingRegressor
-from xgboost import XGBRegressor
-from sklearn.svm import SVR
-from tensorflow import keras
-from tensorflow.keras import layers
-from sklearn.svm import SVR
-from sklearn.ensemble import StackingRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.neural_network import MLPRegressor
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error, r2_score
+# import tensorflow as tf
+# import os
+# from sklearn.ensemble import (
+#     GradientBoostingRegressor,
+#     RandomForestRegressor,
+#     AdaBoostRegressor,
+#     VotingRegressor,
+# )
+# from sklearn.svm import SVR
+# from sklearn.svm import SVR
+# from sklearn.ensemble import GradientBoostingRegressor
+# from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
+# import numpy as np
+# import pandas as pd
+# from sklearn.preprocessing import MinMaxScaler, StandardScaler
+# from sklearn.model_selection import train_test_split
+# from sklearn.svm import SVC
+# import pickle
+# from sklearn.model_selection import train_test_split
+# from sklearn.ensemble import (
+#     GradientBoostingRegressor,
+#     RandomForestRegressor,
+#     VotingRegressor,
+# )
+# from sklearn.linear_model import LinearRegression
+# from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+# from sklearn.neural_network import MLPRegressor
+# from sklearn.preprocessing import StandardScaler
+# from sklearn.experimental import enable_hist_gradient_boosting
+# from sklearn.ensemble import HistGradientBoostingRegressor
+# from sklearn.impute import SimpleImputer
+# from sklearn.pipeline import make_pipeline
+# from sklearn.ensemble import VotingRegressor
+# from xgboost import XGBRegressor
+# from sklearn.svm import SVR
+# from tensorflow import keras
+# from tensorflow.keras import layers
+# from sklearn.svm import SVR
+# from sklearn.ensemble import StackingRegressor
+# from sklearn.linear_model import LinearRegression
+# from sklearn.neural_network import MLPRegressor
+# from sklearn.preprocessing import StandardScaler
+# from sklearn.metrics import mean_squared_error, r2_score
 import requests
 import smtplib
 
