@@ -88,6 +88,7 @@
         padding: 1%;
       }
     </style>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
@@ -137,7 +138,9 @@
       </nav>
 
       <div>
-        <center><h1 style="color: white">Climatic  Inspection of {{city}} </h1></center>
+        <center>
+          <h1 style="color: white">Climatic Inspection of {{city}}</h1>
+        </center>
       </div>
 
       <div class="info-container">
@@ -170,436 +173,461 @@
           <h2>Ozone Hole Area</h2>
           <p>{{ ozone }} KM</p>
         </div>
-
       </div>
-        <br />
+      <br />
 
-        {% if display_charts %}
-        <div >
-          <center>
-            <h1 style="color: white; margin-top: 4%; text-align: center">
-              Graphical analysis
-            </h1>
-          </center>
-        </div>
-
-
-
-
-
-         
- 
-
-
-
-
-       
-
-
-     
-       
-
-
-
-                  <center>
-
-                    <div
-                    style="
-                      background-color: #052531;
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      margin-top: 4%;
-                 
-                      box-sizing: border-box;
-                      background-color: #f2f2f2;
-                      width:50%;
-                     
-                    ">
-                    <!-- Maximum Temperature Chart -->
-           
-                    <div style="flex: 0 0 100%; box-sizing: border-box;">
-                            <canvas id="maxTempChart"></canvas>
-                    </div>
-           
-           
-                  </div>
-                         
-                  </center>
-
-
-
-                 
-                  <center>
-
-                    <div
-                    style="
-                      background-color: #052531;
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      margin-top: 4%;
-                 
-                      box-sizing: border-box;
-                      background-color: #f2f2f2;
-                      width:50%;
-                     
-                    ">
-                   
-           
-                    <div style="flex: 0 0 100%; box-sizing: border-box;">
-                      <canvas id="minTempChart"></canvas>
-                    </div>
-           
-           
-                  </div>
-                         
-                  </center>
-
-
-                                   
-                  <center>
-
-                    <div
-                    style="
-                      background-color: #052531;
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      margin-top: 4%;
-                 
-                      box-sizing: border-box;
-                      background-color: #f2f2f2;
-                      width:50%;
-                     
-                    ">
-                   
-           
-                    <div style="flex: 0 0 100%; box-sizing: border-box;">
-                      <canvas id="aqiChart"></canvas>
-                    </div>
-           
-           
-                  </div>
-                         
-                  </center>
-
-
-                  <center>
-
-                    <div
-                    style="
-                      background-color: #052531;
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      margin-top: 4%;
-                 
-                      box-sizing: border-box;
-                      background-color: #f2f2f2;
-                      width:50%;
-                     
-                    ">
-                   
-           
-                    <div style="flex: 0 0 100%; box-sizing: border-box;">
-                      <canvas id="seaLevelChart"></canvas>
-                    </div>
-           
-           
-                  </div>
-                         
-                  </center>
-
-
-
-                  <center>
-
-                    <div
-                    style="
-                      background-color: #052531;
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      margin-top: 4%;
-                 
-                      box-sizing: border-box;
-                      background-color: #f2f2f2;
-                      width:50%;
-                     
-                    ">
-                   
-           
-                    <div style="flex: 0 0 100%; box-sizing: border-box;">
-                      <canvas id="ozoneChart"></canvas>
-                    </div>
-           
-           
-                  </div>
-                         
-                  </center>
-
-
-                  <center>
-
-                    <div
-                    style="
-                      background-color: #052531;
-                      display: flex;
-                      flex-wrap: wrap;
-                      justify-content: space-between;
-                      margin-top: 4%;
-                 
-                      box-sizing: border-box;
-                      background-color: #f2f2f2;
-                      width:50%;
-                     
-                    ">
-                   
-           
-                    <div style="flex: 0 0 100%; box-sizing: border-box;">
-                      <canvas id="rainfallChart"></canvas>
-                    </div>
-           
-           
-                  </div>
-                         
-                  </center>
-
-
-
-
-
-
- 
-
-                 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div>
-
-       
-       
-
-   
-          {% endif %}
-        </div>
+      {% if display_charts %}
+      <div>
+        <center>
+          <h1 style="color: white; margin-top: 4%; text-align: center">
+            Graphical analysis
+          </h1>
+        </center>
       </div>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="maxTempChart"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="minTempChart"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="aqiChart"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="seaLevelChart"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="ozoneChart"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="rainfallChart"></canvas>
+          </div>
+        </div>
+      </center>
+
+      {% else %}
+
+      <div>
+        <center>
+          <h1 style="color: white; margin-top: 4%; text-align: center">
+            Graphical analysis
+          </h1>
+        </center>
+      </div>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="maxTempChart1"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="minTempChart1"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="aqiChart1"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="seaLevelChart1"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="ozoneChart1"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <center>
+        <div
+          style="
+            background-color: #052531;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 4%;
+
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            width: 50%;
+          "
+        >
+          <div style="flex: 0 0 100%; box-sizing: border-box">
+            <canvas id="rainfallChart1"></canvas>
+          </div>
+        </div>
+      </center>
+
+      <div>{% endif %}</div>
     </div>
 
-
-
-     
-
-
-
-
-
-
     <script>
-
       const maxTempXValues = [2020, {{year}}, 2099];
-const maxTempYValues = [44.51737, {{max_t}}, 77.9180149];
+      const maxTempYValues = [44.51737, {{max_t}}, 77.9180149];
 
-new Chart("maxTempChart", {
-  type: "bar",  
-  data: {
-    labels: maxTempXValues,
-    datasets: [
-      {
-        backgroundColor: "#052531",  
-        data: maxTempYValues,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Maximum Temperature (Celsius)',
-      fontStyle: 'bold',
-    },
-    legend: { display: false },
-    scales: {
-      yAxes: [{
-        ticks: { min: 0, max: 100 },
-        scaleLabel: {
-          display: true,
-          labelString: 'Temperature (Celsius)',
+      new Chart("maxTempChart", {
+        type: "bar",
+        data: {
+          labels: maxTempXValues,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: maxTempYValues,
+            },
+          ],
         },
-      }],
-      xAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'Year',
+        options: {
+          title: {
+            display: true,
+            text: 'Maximum Temperature (Celsius)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 0, max: 100 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Temperature (Celsius)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
         },
-      }],
-    },
-    tooltips: {
-      enabled: false,  
-    },
-    hover: {
-      mode: true,
-    },
-    animation: {
-      onComplete: function () {
-        var ctx = this.chart.ctx;
-        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-        ctx.fillStyle = "black";
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-
-        this.data.datasets.forEach(function (dataset) {
-          for (var i = 0; i < dataset.data.length; i++) {
-            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-            ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
-          }
-        });
-      },
-    },
-  },
-});
+      });
 
 
 
-const minTempXValues = [2020, {{year}}, 2099];
-const minTempYValues = [30.163015223775734, {{min_t}}, 43.2046];
+      const minTempXValues = [2020, {{year}}, 2099];
+      const minTempYValues = [30.163015223775734, {{min_t}}, 43.2046];
 
-new Chart("minTempChart", {
-  type: "bar",  
-  data: {
-    labels: minTempXValues,
-    datasets: [
-      {
-        backgroundColor: "#052531",  
-        data: minTempYValues,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Minumum Temperature (Celsius)',
-      fontStyle: 'bold',
-    },
-    legend: { display: false },
-    scales: {
-      yAxes: [{
-        ticks: { min: 0, max: 100 },
-        scaleLabel: {
-          display: true,
-          labelString: 'Temperature (Celsius)',
+      new Chart("minTempChart", {
+        type: "bar",
+        data: {
+          labels: minTempXValues,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: minTempYValues,
+            },
+          ],
         },
-      }],
-      xAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'Year',
+        options: {
+          title: {
+            display: true,
+            text: 'Minumum Temperature (Celsius)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 0, max: 100 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Temperature (Celsius)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
         },
-      }],
-    },
-    tooltips: {
-      enabled: false,  
-    },
-    hover: {
-      mode: true,
-    },
-    animation: {
-      onComplete: function () {
-        var ctx = this.chart.ctx;
-        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-        ctx.fillStyle = "black";
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-
-        this.data.datasets.forEach(function (dataset) {
-          for (var i = 0; i < dataset.data.length; i++) {
-            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-            ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
-          }
-        });
-      },
-    },
-  },
-});
+      });
 
 
 
 
 
 
-  const aqiXValues = [2020, {{year}}, 2099];
- const aqiYValues = [196.77, {{aqi}}, 220.11871910024042];
+        const aqiXValues = [2020, {{year}}, 2099];
+       const aqiYValues = [196.77, {{aqi}}, 220.11871910024042];
 
-new Chart("aqiChart", {
-  type: "bar",  
-  data: {
-    labels: aqiXValues,
-    datasets: [
-      {
-        backgroundColor: "#052531",  
-        data: aqiYValues,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Air Quality Index (μg/m3)',
-      fontStyle: 'bold',
-    },
-    legend: { display: false },
-    scales: {
-      yAxes: [{
-        ticks: { min: 190, max: 235 },
-        scaleLabel: {
-          display: true,
-          labelString: 'Air Quality Index (μg/m3)',
+      new Chart("aqiChart", {
+        type: "bar",
+        data: {
+          labels: aqiXValues,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: aqiYValues,
+            },
+          ],
         },
-      }],
-      xAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'Year',
+        options: {
+          title: {
+            display: true,
+            text: 'Air Quality Index (μg/m3)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 190, max: 235 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Air Quality Index (μg/m3)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
         },
-      }],
-    },
-    tooltips: {
-      enabled: false,  
-    },
-    hover: {
-      mode: true,
-    },
-    animation: {
-      onComplete: function () {
-        var ctx = this.chart.ctx;
-        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-        ctx.fillStyle = "black";
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-
-        this.data.datasets.forEach(function (dataset) {
-          for (var i = 0; i < dataset.data.length; i++) {
-            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-            ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
-          }
-        });
-      },
-    },
-  },
-});
+      });
 
 
 
@@ -614,226 +642,566 @@ new Chart("aqiChart", {
 
 
 
-   
-const seaLevelXValues = [2020, {{year}}, 2099];
-const seaLevelYValues = [204.5449895120464, {{sealevel}}, 206.9114480845873];
- 
- new Chart("seaLevelChart", {
-   type: "bar",  
-   data: {
-     labels: seaLevelXValues,
-     datasets: [
-       {
-         backgroundColor: "#052531",  
-         data: seaLevelYValues,
-       },
-     ],
-   },
-   options: {
-     title: {
-       display: true,
-       text: 'Sea Level (in meters)',
-       fontStyle: 'bold',
-     },
-     legend: { display: false },
-     scales: {
-       yAxes: [{
-         ticks: { min: 204, max: 210 },
-         scaleLabel: {
-           display: true,
-           labelString: 'Sea Level (meters)',
+
+      const seaLevelXValues = [2020, {{year}}, 2099];
+      const seaLevelYValues = [204.5449895120464, {{sealevel}}, 206.9114480845873];
+
+       new Chart("seaLevelChart", {
+         type: "bar",
+         data: {
+           labels: seaLevelXValues,
+           datasets: [
+             {
+               backgroundColor: "#052531",
+               data: seaLevelYValues,
+             },
+           ],
          },
-       }],
-       xAxes: [{
-         scaleLabel: {
-           display: true,
-           labelString: 'Year',
+         options: {
+           title: {
+             display: true,
+             text: 'Sea Level (in meters)',
+             fontStyle: 'bold',
+           },
+           legend: { display: false },
+           scales: {
+             yAxes: [{
+               ticks: { min: 204, max: 210 },
+               scaleLabel: {
+                 display: true,
+                 labelString: 'Sea Level (meters)',
+               },
+             }],
+             xAxes: [{
+               scaleLabel: {
+                 display: true,
+                 labelString: 'Year',
+               },
+             }],
+           },
+           tooltips: {
+             enabled: false,
+           },
+           hover: {
+             mode: true,
+           },
+           animation: {
+             onComplete: function () {
+               var ctx = this.chart.ctx;
+               ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+               ctx.fillStyle = "black";
+               ctx.textAlign = 'center';
+               ctx.textBaseline = 'bottom';
+
+               this.data.datasets.forEach(function (dataset) {
+                 for (var i = 0; i < dataset.data.length; i++) {
+                   var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                   ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                 }
+               });
+             },
+           },
          },
-       }],
-     },
-     tooltips: {
-       enabled: false,  
-     },
-     hover: {
-       mode: true,
-     },
-     animation: {
-       onComplete: function () {
-         var ctx = this.chart.ctx;
-         ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-         ctx.fillStyle = "black";
-         ctx.textAlign = 'center';
-         ctx.textBaseline = 'bottom';
- 
-         this.data.datasets.forEach(function (dataset) {
-           for (var i = 0; i < dataset.data.length; i++) {
-             var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-             ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
-           }
-         });
-       },
-     },
-   },
- });
- 
+       });
 
 
 
 
 
- const ozoneXValues = [2020, {{year}}, 2099];
- const ozoneYValues = [24150003.091906756, {{ozone}}, 29708543.086185645];
- new Chart("ozoneChart", {
-   type: "bar",  
-   data: {
-     labels: ozoneXValues,
-     datasets: [
-       {
-         backgroundColor: "#052531",  
-         data: ozoneYValues,
-       },
-     ],
-   },
-   options: {
-     title: {
-       display: true,
-       text: 'Ozone Layer Depletion (KM)',
-       fontStyle: 'bold',
-     },
-     legend: { display: false },
-     scales: {
-       yAxes: [{
-         ticks: { min: 24140000, max: 30000000 },
-         scaleLabel: {
-           display: true,
-           labelString: 'Ozone Layer Depletion (KM)',
+
+       const ozoneXValues = [2020, {{year}}, 2099];
+       const ozoneYValues = [24150003.091906756, {{ozone}}, 29708543.086185645];
+       new Chart("ozoneChart", {
+         type: "bar",
+         data: {
+           labels: ozoneXValues,
+           datasets: [
+             {
+               backgroundColor: "#052531",
+               data: ozoneYValues,
+             },
+           ],
          },
-       }],
-       xAxes: [{
-         scaleLabel: {
-           display: true,
-           labelString: 'Year',
+         options: {
+           title: {
+             display: true,
+             text: 'Ozone Layer Depletion (KM)',
+             fontStyle: 'bold',
+           },
+           legend: { display: false },
+           scales: {
+             yAxes: [{
+               ticks: { min: 24140000, max: 30000000 },
+               scaleLabel: {
+                 display: true,
+                 labelString: 'Ozone Layer Depletion (KM)',
+               },
+             }],
+             xAxes: [{
+               scaleLabel: {
+                 display: true,
+                 labelString: 'Year',
+               },
+             }],
+           },
+           tooltips: {
+             enabled: false,
+           },
+           hover: {
+             mode: true,
+           },
+           animation: {
+             onComplete: function () {
+               var ctx = this.chart.ctx;
+               ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+               ctx.fillStyle = "black";
+               ctx.textAlign = 'center';
+               ctx.textBaseline = 'bottom';
+
+               this.data.datasets.forEach(function (dataset) {
+                 for (var i = 0; i < dataset.data.length; i++) {
+                   var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                   ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                 }
+               });
+             },
+           },
          },
-       }],
-     },
-     tooltips: {
-       enabled: false,  
-     },
-     hover: {
-       mode: true,
-     },
-     animation: {
-       onComplete: function () {
-         var ctx = this.chart.ctx;
-         ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-         ctx.fillStyle = "black";
-         ctx.textAlign = 'center';
-         ctx.textBaseline = 'bottom';
- 
-         this.data.datasets.forEach(function (dataset) {
-           for (var i = 0; i < dataset.data.length; i++) {
-             var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-             ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
-           }
-         });
-       },
-     },
-   },
- });
- 
- 
- 
+       });
 
- 
- 
- const rainfallXValues = [2020, {{year}}, 2099];
- const rainfallYValues  = [78.34081137798493, {{rain}}, 103.9689999386332];
- new Chart("rainfallChart", {
-   type: "bar",  
-   data: {
-     labels: rainfallXValues,
-     datasets: [
-       {
-         backgroundColor: "#052531",  
-         data: rainfallYValues,
-       },
-     ],
-   },
-   options: {
-     title: {
-       display: true,
-       text: 'Rainfall(in mm)',
-       fontStyle: 'bold',
-     },
-     legend: { display: false },
-     scales: {
-       yAxes: [{
-         ticks: { min:45, max: 130 },
-         scaleLabel: {
-           display: true,
-           labelString: 'Rainfall(in mm)',
+
+
+
+
+
+       const rainfallXValues = [2020, {{year}}, 2099];
+       const rainfallYValues  = [78.34081137798493, {{rain}}, 103.9689999386332];
+       new Chart("rainfallChart", {
+         type: "bar",
+         data: {
+           labels: rainfallXValues,
+           datasets: [
+             {
+               backgroundColor: "#052531",
+               data: rainfallYValues,
+             },
+           ],
          },
-       }],
-       xAxes: [{
-         scaleLabel: {
-           display: true,
-           labelString: 'Year',
+         options: {
+           title: {
+             display: true,
+             text: 'Rainfall(in mm)',
+             fontStyle: 'bold',
+           },
+           legend: { display: false },
+           scales: {
+             yAxes: [{
+               ticks: { min:45, max: 130 },
+               scaleLabel: {
+                 display: true,
+                 labelString: 'Rainfall(in mm)',
+               },
+             }],
+             xAxes: [{
+               scaleLabel: {
+                 display: true,
+                 labelString: 'Year',
+               },
+             }],
+           },
+           tooltips: {
+             enabled: false,
+           },
+           hover: {
+             mode: true,
+           },
+           animation: {
+             onComplete: function () {
+               var ctx = this.chart.ctx;
+               ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+               ctx.fillStyle = "black";
+               ctx.textAlign = 'center';
+               ctx.textBaseline = 'bottom';
+
+               this.data.datasets.forEach(function (dataset) {
+                 for (var i = 0; i < dataset.data.length; i++) {
+                   var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                   ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                 }
+               });
+             },
+           },
          },
-       }],
-     },
-     tooltips: {
-       enabled: false,  
-     },
-     hover: {
-       mode: true,
-     },
-     animation: {
-       onComplete: function () {
-         var ctx = this.chart.ctx;
-         ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
-         ctx.fillStyle = "black";
-         ctx.textAlign = 'center';
-         ctx.textBaseline = 'bottom';
- 
-         this.data.datasets.forEach(function (dataset) {
-           for (var i = 0; i < dataset.data.length; i++) {
-             var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
-             ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
-           }
-         });
-       },
-     },
-   },
- });
- 
- 
-
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+       });
     </script>
 
     <script>
+      const maxTempXValues1 = [2020, {{year}}, 2099];
+      const maxTempYValues1 = [44.51, {{max_t}}, 64.49];
 
-     
+      new Chart("maxTempChart1", {
+        type: "bar",
+        data: {
+          labels: maxTempXValues1,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: maxTempYValues1,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Maximum Temperature (Celsius)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 0, max: 100 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Temperature (Celsius)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
 
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
+        },
+      });
 
+      const minTempXValues1 = [2020, {{year}}, 2099];
+      const minTempYValues1 = [20.14, {{min_t}}, 31.28];
 
+      new Chart("minTempChart1", {
+        type: "bar",
+        data: {
+          labels: minTempXValues1,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: minTempYValues1,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Minumum Temperature (Celsius)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 0, max: 100 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Temperature (Celsius)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
+        },
+      });
+
+      const aqiXValues1 = [2020, {{year}}, 2099];
+      const aqiYValues1 = [138.4, {{aqi}}, 155.222];
+
+      new Chart("aqiChart1", {
+        type: "bar",
+        data: {
+          labels: aqiXValues1,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: aqiYValues1,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Air Quality Index (μg/m3)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 120, max: 165 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Air Quality Index (μg/m3)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
+        },
+      });
+
+      const seaLevelXValues1 = [2020, {{year}}, 2099];
+      const seaLevelYValues1 = [204.5449895120464, {{sealevel}}, 206.9114480845873];
+
+      new Chart("seaLevelChart1", {
+        type: "bar",
+        data: {
+          labels: seaLevelXValues1,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: seaLevelYValues1,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Sea Level (in meters)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 204, max: 210 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Sea Level (meters)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
+        },
+      });
+
+      const ozoneXValues1 = [2020, {{year}}, 2099];
+      const ozoneYValues1 = [24150003.091906756, {{ozone}}, 29708543.086185645];
+
+      new Chart("ozoneChart1", {
+        type: "bar",
+        data: {
+          labels: ozoneXValues1,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: ozoneYValues1,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Ozone Layer Depletion (KM)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 24140000, max: 30000000 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Ozone Layer Depletion (KM)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
+        },
+      });
+
+      const rainfallXValues1 = [2020, {{year}}, 2099];
+      const rainfallYValues1 = [87.74, {{rain}}, 116.44];
+
+      new Chart("rainfallChart1", {
+        type: "bar",
+        data: {
+          labels: rainfallXValues1,
+          datasets: [
+            {
+              backgroundColor: "#052531",
+              data: rainfallYValues1,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Rainfall (in mm)',
+            fontStyle: 'bold',
+          },
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: { min: 50, max: 150 },
+              scaleLabel: {
+                display: true,
+                labelString: 'Rainfall (in mm)',
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Year',
+              },
+            }],
+          },
+          tooltips: {
+            enabled: false,
+          },
+          hover: {
+            mode: true,
+          },
+          animation: {
+            onComplete: function () {
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.fillStyle = "black";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset) {
+                for (var i = 0; i < dataset.data.length; i++) {
+                  var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                  ctx.fillText(dataset.data[i].toFixed(2), model.x, model.y - 5);
+                }
+              });
+            },
+          },
+        },
+      });
     </script>
-
-   
 
     <script>
       let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
