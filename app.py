@@ -511,7 +511,7 @@ def mail_send(user_email, city, year, max_t, min_t, rain, aqi, sealevel, ozone):
 
 
 @app.route("/result", methods=["POST", "GET"])
-def result():
+def Result():
     if request.method == "POST":
         ans = ""
         max_t = 49
