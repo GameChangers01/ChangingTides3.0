@@ -540,7 +540,7 @@ def Result():
             ozone = predict_maximum_ozone(y1)
             mail_send(user_email, city, year, max_t, min_t, rain, aqi, sealevel, ozone)
             return render_template(
-                "result.html",
+                "Result.html",
                 max_t=max_t,
                 min_t=min_t,
                 rain=rain,
@@ -561,7 +561,7 @@ def Result():
             ozone = predict_maximum_ozone(y1)
             mail_send(user_email, city, year, max_t, min_t, rain, aqi, sealevel, ozone)
             return render_template(
-                "result.html",
+                "Result.html",
                 max_t=max_t,
                 min_t=min_t,
                 rain=rain,
